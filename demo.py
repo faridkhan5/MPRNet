@@ -12,7 +12,7 @@ from glob import glob
 import cv2
 import argparse
 
-curr_dir = os.get_cwd()
+curr_dir = os.getcwd()
 
 parser = argparse.ArgumentParser(description='Demo MPRNet')
 parser.add_argument('--input_dir', default='./samples/input/', type=str, help='Input images')
