@@ -36,7 +36,7 @@ def load_checkpoint(model, weights):
             new_state_dict[name] = v
         model.load_state_dict(new_state_dict)
 
-task = os.path.join(curr_dir, args.task)
+task = os.path.abspath(os.path.join(curr_dir, args.task))
 inp_dir = os.path.join(curr_dir, args.input_dir)
 out_dir = os.path.join(curr_dir, args.result_dir)
 
