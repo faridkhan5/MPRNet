@@ -12,6 +12,8 @@ from glob import glob
 import cv2
 import argparse
 
+curr_dir = os.get_cwd()
+
 parser = argparse.ArgumentParser(description='Demo MPRNet')
 parser.add_argument('--input_dir', default='./samples/input/', type=str, help='Input images')
 parser.add_argument('--result_dir', default='./samples/output/', type=str, help='Directory for results')
@@ -34,9 +36,9 @@ def load_checkpoint(model, weights):
             new_state_dict[name] = v
         model.load_state_dict(new_state_dict)
 
-task    = args.task
-inp_dir = args.input_dir
-out_dir = args.result_dir
+task = os.path.join(curr_dir, args.task)
+inp_dir = os.path.join(curr_dir, args.input_dir)
+out_dir = os.path.join(curr_dir, args.result_dir)
 
 os.makedirs(out_dir, exist_ok=True)
 
